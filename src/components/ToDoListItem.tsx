@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { observer } from 'mobx-react-lite'
 import store from '../store/store'
 
 interface IToDoItem {
@@ -7,7 +8,7 @@ interface IToDoItem {
     done: boolean
 }
 
-export const ToDoItem: FC<IToDoItem> = ({id, text, done }) => {
+const ToDoItem: FC<IToDoItem> = ({id, text, done }) => {
     return (
         <div className="todo">
             <label>
@@ -23,3 +24,5 @@ export const ToDoItem: FC<IToDoItem> = ({id, text, done }) => {
         </div>
     )
 }
+
+export const ObservedToDoItem = observer(ToDoItem)
